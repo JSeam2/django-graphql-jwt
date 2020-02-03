@@ -92,15 +92,15 @@ def token_auth(f):
         context._jwt_token_auth = True
         username = kwargs.get(get_user_model().USERNAME_FIELD)
 
-        user = jwt_settings.JWT_GET_USER_BY_NATURAL_KEY_HANDLER(username)
-        if user is None:
-            raise exceptions.JSONWebTokenError(
-                _('Please enter valid credentials'),
-            )
+        # user = jwt_settings.JWT_GET_USER_BY_NATURAL_KEY_HANDLER(username)
+        # if user is None:
+        #     raise exceptions.JSONWebTokenError(
+        #         _('Please enter valid credentials'),
+        #     )
 
         user = authenticate(
             request=context,
-            username=user.username,
+            username=username,
             password=password,
         )
         if user is None:

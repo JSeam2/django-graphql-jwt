@@ -17,4 +17,4 @@ class JSONWebTokenBackend:
         return None
 
     def get_user(self, user_id):
-        return jwt_settings.JWT_GET_USER_BY_NATURAL_KEY_HANDLER(user_id)
+        return None
